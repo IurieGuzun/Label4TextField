@@ -14,10 +14,30 @@
 
 @implementation ViewController
 
+@synthesize labelX, labelY;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
+
+- (IBAction)buttonBackPressed:(UIButton *)sender {
+}
+
+- (IBAction)buttonThreePressed:(UIButton *)sender {
+}
+
+- (IBAction)buttonTwoPressed:(UIButton *)sender {
+}
+
+- (IBAction)buttonOnePressed:(UIButton *)sender {
+}
+
+- (IBAction)buttonZeroPressed:(UIButton *)sender {
+}
+
+- (IBAction)buttonMinusPressed:(UIButton *)sender {
+}
 
 @end
