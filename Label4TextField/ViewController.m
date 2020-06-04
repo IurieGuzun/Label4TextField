@@ -18,10 +18,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    UITapGestureRecognizer *tapXAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelXClick:)];
+    tapXAction.delegate = self;
+    tapXAction.numberOfTapsRequired = 1;
+    
+    UITapGestureRecognizer *tapYAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelYClick:)];
+       tapYAction.delegate = self;
+       tapYAction.numberOfTapsRequired = 1;
+    //Enable the lable UserIntraction
+    labelX.userInteractionEnabled = YES;
+    labelY.userInteractionEnabled = YES;
+    [labelX addGestureRecognizer:tapXAction];
+    [labelY addGestureRecognizer:tapYAction];
 }
-
-
+- (void)labelXClick:(UITapGestureRecognizer *)tapGesture {
+        NSLog(@"Label X Tapped!");
+}
+- (void)labelYClick:(UITapGestureRecognizer *)tapGesture {
+        NSLog(@"Label Y Tapped!");
+}
 - (IBAction)buttonBackPressed:(UIButton *)sender {
 }
 
