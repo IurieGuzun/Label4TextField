@@ -12,14 +12,23 @@
 
 @end
 
+ NSMutableString *currentValue;
+
 @implementation ViewController
 
 @synthesize labelX, labelY;
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+   currentValue = [NSMutableString stringWithString:@""];
+  //   NSLog(currentValue);
+   
+    
     
     UITapGestureRecognizer *tapXAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelXClick:)];
+    
     tapXAction.delegate = self;
     tapXAction.numberOfTapsRequired = 1;
     
@@ -34,26 +43,57 @@
 }
 - (void)labelXClick:(UITapGestureRecognizer *)tapGesture {
         NSLog(@"Label X Tapped!");
+ 
+         NSLog(@"%@", currentValue);
+         labelX.text = @" X = _";
+      //   self.labelX.text = @"%@", currentValue;
+        
 }
 - (void)labelYClick:(UITapGestureRecognizer *)tapGesture {
         NSLog(@"Label Y Tapped!");
 }
 - (IBAction)buttonBackPressed:(UIButton *)sender {
+    
+        NSLog(@"Button Delete Tapped!");
+        int len = [currentValue length];
+    if ([currentValue length]>0)
+    {
+        currentValue = [currentValue substringToIndex:[currentValue length]-1];
+        NSLog(currentValue);
+    }
 }
 
 - (IBAction)buttonThreePressed:(UIButton *)sender {
+    NSLog(@"Button 3 Tapped!");
+    [currentValue appendString: @"3"];
+    NSLog(currentValue);
+    
 }
 
 - (IBAction)buttonTwoPressed:(UIButton *)sender {
+    NSLog(@"Button 2 Tapped!");
+    [currentValue appendString: @"2"];
+     NSLog(currentValue);
 }
 
 - (IBAction)buttonOnePressed:(UIButton *)sender {
+    NSLog(@"Button 1 Tapped!");
+    [currentValue appendString: @"1"];
+     NSLog(currentValue);
 }
 
 - (IBAction)buttonZeroPressed:(UIButton *)sender {
+    NSLog(@"Button 0 Tapped!");
+//    NSString *str = [NSString stringWithFormat:@"%@", @"0"];
+//    [currentValue appendString: str];
+    [currentValue appendString: @"0"];
+     NSLog(currentValue);
 }
 
 - (IBAction)buttonMinusPressed:(UIButton *)sender {
+    NSLog(@"Button - Tapped!");
+    [currentValue appendString: @"-"];
+     NSLog(currentValue);
 }
 
 @end

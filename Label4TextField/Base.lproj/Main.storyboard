@@ -27,19 +27,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osi-s7-qVy" userLabel="Button0">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osi-s7-qVy" userLabel="Button1">
                                 <rect key="frame" x="30" y="452" width="36" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="1"/>
                                 <connections>
                                     <action selector="buttonOnePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IfS-o3-REN"/>
-                                    <action selector="buttonZeroPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vwd-a4-YmA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQD-jb-dXD" userLabel="Button1">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQD-jb-dXD" userLabel="Button0">
                                 <rect key="frame" x="74" y="410" width="36" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="0"/>
+                                <connections>
+                                    <action selector="buttonZeroPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xp0-E5-MsN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Su0-xD-N8j" userLabel="Button3">
                                 <rect key="frame" x="74" y="451" width="36" height="33"/>

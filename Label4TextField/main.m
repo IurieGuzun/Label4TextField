@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
+//int myIntVar = 0;
+// NSString *string1 = @"This string is immutable";
+// NSMutableString *mutableOne = nil;
+
 int main(int argc, char * argv[]) {
     NSString * appDelegateClassName;
     @autoreleasepool {

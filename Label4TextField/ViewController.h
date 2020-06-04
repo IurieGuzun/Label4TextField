@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
+  
+  // NSMutableString *currentValue;
+    
+}
+
 @property (weak, nonatomic) IBOutlet UILabel *labelX;
 @property (weak, nonatomic) IBOutlet UILabel *labelY;
 
