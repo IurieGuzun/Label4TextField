@@ -13,6 +13,8 @@
 @end
 
  NSMutableString *currentValue;
+ NSString *minusSymbol;
+ NSUInteger currentLength;
 
 @implementation ViewController
 
@@ -23,6 +25,8 @@
     [super viewDidLoad];
    
    currentValue = [NSMutableString stringWithString:@""];
+    minusSymbol = [NSString stringWithString:@"-"];
+    
   //   NSLog(currentValue);
    
     
@@ -58,14 +62,25 @@
         int len = [currentValue length];
     if ([currentValue length]>0)
     {
-        currentValue = [currentValue substringToIndex:[currentValue length]-1];
+        NSString *tempValue;
+        tempValue = [currentValue substringToIndex:[currentValue length]-1];
+        currentValue = [NSMutableString stringWithString: tempValue];
         NSLog(currentValue);
     }
 }
 
 - (IBAction)buttonThreePressed:(UIButton *)sender {
+   
     NSLog(@"Button 3 Tapped!");
+    NSString *firstSymbol;
+    currentLength = [currentValue length];
+    if (currentLength==0) {
     [currentValue appendString: @"3"];
+    } else if ((currentLength==1) && ([[currentValue substringWithRange: NSMakeRange (0, 1)] isEqualToString: minusSymbol])) {
+        firstSymbol = [currentValue substringWithRange: NSMakeRange (0, 1)];
+        NSLog (@"first symbol = %@", firstSymbol);
+      [currentValue appendString: @"3"];
+    }
     NSLog(currentValue);
     
 }
