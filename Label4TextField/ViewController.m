@@ -69,6 +69,7 @@
         tempValue = [currentValue substringToIndex:[currentValue length]-1];
         currentValue = [NSMutableString stringWithString: tempValue];
         NSLog(@"%@", currentValue);
+        labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentValue];
     }
 }
 
@@ -108,14 +109,25 @@ NSString *firstSymbol;
 
 - (IBAction)buttonZeroPressed:(UIButton *)sender {
     NSLog(@"Button 0 Tapped!");
-    NSString* mySymbol = @"0";
-    [self insertSymbol:mySymbol];
+   
+    currentLength = [currentValue length];
+      if (currentLength==0) {
+          NSString* mySymbol = @"0";
+           [currentValue appendString: mySymbol];
+      }
+    labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentValue];
+
 }
 
 - (IBAction)buttonMinusPressed:(UIButton *)sender {
     NSLog(@"Button - Tapped!");
-    [currentValue appendString: @"-"];
-     NSLog(currentValue);
+   currentLength = [currentValue length];
+   if (currentLength==0) {
+    NSString* mySymbol = @"-";
+    [currentValue appendString: mySymbol];
+   }
+    labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentValue];
+
 }
 
 @end
