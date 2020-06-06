@@ -15,6 +15,8 @@
  NSMutableString *currentValue;
  NSString *minusSymbol;
  NSUInteger currentLength;
+ NSString *xValue;
+ NSString *yValue;
 
 @implementation ViewController
 
@@ -24,9 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-   currentValue = [NSMutableString stringWithString:@""];
-    minusSymbol = [NSString stringWithString:@"-"];
-    
+    currentValue = [NSMutableString stringWithString:@""];
+    minusSymbol = @"-";
+    xValue = @"X = ";
+    yValue = @"Y = ";
   //   NSLog(currentValue);
    
     
@@ -81,7 +84,9 @@
         NSLog (@"first symbol = %@", firstSymbol);
       [currentValue appendString: @"3"];
     }
-    NSLog(currentValue);
+    NSLog(@"%@", currentValue);
+    labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentValue];
+    
     
 }
 
