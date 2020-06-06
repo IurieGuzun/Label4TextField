@@ -68,46 +68,48 @@
         NSString *tempValue;
         tempValue = [currentValue substringToIndex:[currentValue length]-1];
         currentValue = [NSMutableString stringWithString: tempValue];
-        NSLog(currentValue);
+        NSLog(@"%@", currentValue);
     }
 }
 
 - (IBAction)buttonThreePressed:(UIButton *)sender {
    
     NSLog(@"Button 3 Tapped!");
-    NSString *firstSymbol;
-    currentLength = [currentValue length];
-    if (currentLength==0) {
-    [currentValue appendString: @"3"];
-    } else if ((currentLength==1) && ([[currentValue substringWithRange: NSMakeRange (0, 1)] isEqualToString: minusSymbol])) {
-        firstSymbol = [currentValue substringWithRange: NSMakeRange (0, 1)];
-        NSLog (@"first symbol = %@", firstSymbol);
-      [currentValue appendString: @"3"];
-    }
-    NSLog(@"%@", currentValue);
-    labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentValue];
+    NSString* mySymbol = @"3";
+    [self insertSymbol:mySymbol];
     
-    
+}
+
+- (void) insertSymbol: (NSString*) srt {
+NSString *firstSymbol;
+   currentLength = [currentValue length];
+   if (currentLength==0) {
+   [currentValue appendString: srt];
+   } else if ((currentLength==1) && ([[currentValue substringWithRange: NSMakeRange (0, 1)] isEqualToString: minusSymbol])) {
+       firstSymbol = [currentValue substringWithRange: NSMakeRange (0, 1)];
+       NSLog (@"first symbol = %@", firstSymbol);
+     [currentValue appendString: srt];
+   }
+   NSLog(@"%@", currentValue);
+   labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentValue];
 }
 
 - (IBAction)buttonTwoPressed:(UIButton *)sender {
     NSLog(@"Button 2 Tapped!");
-    [currentValue appendString: @"2"];
-     NSLog(currentValue);
+    NSString* mySymbol = @"2";
+    [self insertSymbol:mySymbol];
 }
 
 - (IBAction)buttonOnePressed:(UIButton *)sender {
     NSLog(@"Button 1 Tapped!");
-    [currentValue appendString: @"1"];
-     NSLog(currentValue);
+    NSString* mySymbol = @"1";
+    [self insertSymbol:mySymbol];
 }
 
 - (IBAction)buttonZeroPressed:(UIButton *)sender {
     NSLog(@"Button 0 Tapped!");
-//    NSString *str = [NSString stringWithFormat:@"%@", @"0"];
-//    [currentValue appendString: str];
-    [currentValue appendString: @"0"];
-     NSLog(currentValue);
+    NSString* mySymbol = @"0";
+    [self insertSymbol:mySymbol];
 }
 
 - (IBAction)buttonMinusPressed:(UIButton *)sender {

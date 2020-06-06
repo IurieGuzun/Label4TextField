@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController
 {
-  
+  //  - (void) insertSymbol: (NSString*) srt;
   // NSMutableString *currentValue;
     
 }
