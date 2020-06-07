@@ -13,6 +13,10 @@
 @end
 
  NSMutableString *currentValue;
+ NSMutableString *currentXValue;
+ NSMutableString *currentYValue;
+ NSMutableString *currentLabel;
+
  NSString *minusSymbol;
  NSUInteger currentLength;
  NSString *xValue;
@@ -27,20 +31,20 @@
     [super viewDidLoad];
    
     currentValue = [NSMutableString stringWithString:@""];
+    currentXValue = [NSMutableString stringWithString:@""];
+    currentYValue = [NSMutableString stringWithString:@""];
+    currentLabel = [NSMutableString stringWithString:@""];
     minusSymbol = @"-";
     xValue = @"X = ";
     yValue = @"Y = ";
-  //   NSLog(currentValue);
-   
-    
     
     UITapGestureRecognizer *tapXAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelXClick:)];
     
-    tapXAction.delegate = self;
+ //   tapXAction.delegate = self;
     tapXAction.numberOfTapsRequired = 1;
     
     UITapGestureRecognizer *tapYAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelYClick:)];
-       tapYAction.delegate = self;
+ //      tapYAction.delegate = self;
        tapYAction.numberOfTapsRequired = 1;
     //Enable the lable UserIntraction
     labelX.userInteractionEnabled = YES;
@@ -50,27 +54,29 @@
 }
 - (void)labelXClick:(UITapGestureRecognizer *)tapGesture {
         NSLog(@"Label X Tapped!");
+        currentLabel = [NSMutableString stringWithString:xValue];
  
          NSLog(@"%@", currentValue);
-         labelX.text = @" X = _";
-      //   self.labelX.text = @"%@", currentValue;
+   //      labelX.text = @" X = _";
         
 }
 - (void)labelYClick:(UITapGestureRecognizer *)tapGesture {
         NSLog(@"Label Y Tapped!");
+         currentLabel = [NSMutableString stringWithString:yValue];
 }
 - (IBAction)buttonBackPressed:(UIButton *)sender {
     
         NSLog(@"Button Delete Tapped!");
-        int len = [currentValue length];
-    if ([currentValue length]>0)
+        [self currentToXY];
+        NSUInteger len = [currentValue length];
+    if (len>0)
     {
         NSString *tempValue;
         tempValue = [currentValue substringToIndex:[currentValue length]-1];
         currentValue = [NSMutableString stringWithString: tempValue];
         NSLog(@"%@", currentValue);
-        labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentValue];
-    }
+      }
+    [self xYToCurrent];
 }
 
 - (IBAction)buttonThreePressed:(UIButton *)sender {
@@ -82,7 +88,8 @@
 }
 
 - (void) insertSymbol: (NSString*) srt {
-NSString *firstSymbol;
+   NSString *firstSymbol;
+    [self currentToXY];
    currentLength = [currentValue length];
    if (currentLength==0) {
    [currentValue appendString: srt];
@@ -92,7 +99,26 @@ NSString *firstSymbol;
      [currentValue appendString: srt];
    }
    NSLog(@"%@", currentValue);
-   labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentValue];
+    [self xYToCurrent];
+}
+
+-(void) xYToCurrent{
+    if ([currentLabel isEqualToString:xValue]) {
+         currentXValue = currentValue;
+         labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentXValue];
+
+          } else if ([currentLabel isEqualToString:yValue]) {
+              currentYValue = currentValue;
+         labelY.text = [NSString stringWithFormat: @"%@ %@", yValue, currentYValue];
+   }
+}
+
+- (void) currentToXY {
+    if ([currentLabel isEqualToString:xValue]) {
+           currentValue = currentXValue;
+       } else if ([currentLabel isEqualToString:yValue]) {
+           currentValue = currentYValue;
+       }
 }
 
 - (IBAction)buttonTwoPressed:(UIButton *)sender {
@@ -109,25 +135,25 @@ NSString *firstSymbol;
 
 - (IBAction)buttonZeroPressed:(UIButton *)sender {
     NSLog(@"Button 0 Tapped!");
-   
+    [self currentToXY];
     currentLength = [currentValue length];
       if (currentLength==0) {
           NSString* mySymbol = @"0";
            [currentValue appendString: mySymbol];
       }
-    labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentValue];
-
+//    labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentValue];
+    [self xYToCurrent];
 }
 
 - (IBAction)buttonMinusPressed:(UIButton *)sender {
     NSLog(@"Button - Tapped!");
+    [self currentToXY];
    currentLength = [currentValue length];
    if (currentLength==0) {
     NSString* mySymbol = @"-";
     [currentValue appendString: mySymbol];
    }
-    labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentValue];
-
+    [self xYToCurrent];
 }
 
 @end
