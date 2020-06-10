@@ -11,17 +11,18 @@
 @interface ViewController ()
 
 @end
-
+ NSTimer *timer;
  NSMutableString *currentValue;
  NSMutableString *currentXValue;
  NSMutableString *currentYValue;
  NSMutableString *currentLabel;
 
+ NSString *cursorSymbol;
  NSString *minusSymbol;
  NSUInteger currentLength;
  NSString *xValue;
  NSString *yValue;
-
+ BOOL blinkStatus = NO;
 @implementation ViewController
 
 @synthesize labelX, labelY;
@@ -38,19 +39,37 @@
     xValue = @"X = ";
     yValue = @"Y = ";
     
+    
     UITapGestureRecognizer *tapXAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelXClick:)];
     
  //   tapXAction.delegate = self;
     tapXAction.numberOfTapsRequired = 1;
     
     UITapGestureRecognizer *tapYAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelYClick:)];
- //      tapYAction.delegate = self;
+    
+//    timer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)(1.0)
+//                                target:self
+//                                 selector:@selector(blink)
+//                                 userInfo:nil
+//                                 repeats:TRUE];
+    
        tapYAction.numberOfTapsRequired = 1;
-    //Enable the lable UserIntraction
+    //Enable the label UserIntraction
     labelX.userInteractionEnabled = YES;
     labelY.userInteractionEnabled = YES;
     [labelX addGestureRecognizer:tapXAction];
     [labelY addGestureRecognizer:tapYAction];
+}
+-(void)blink{
+    NSLog(@"Blink Accessed!!!");
+  //  BOOL blinkStatus = NO;
+   if(blinkStatus == NO){
+      labelX.backgroundColor = [UIColor blueColor];
+     blinkStatus = YES;
+   }else {
+      labelX.backgroundColor = [UIColor grayColor];
+      blinkStatus = NO;
+   }
 }
 - (void)labelXClick:(UITapGestureRecognizer *)tapGesture {
         NSLog(@"Label X Tapped!");
@@ -103,6 +122,12 @@
 }
 
 -(void) xYToCurrent{
+    timer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)(1.0)
+                                target:self
+                                 selector:@selector(blink)
+                                 userInfo:nil
+                                 repeats:TRUE];
+
     if ([currentLabel isEqualToString:xValue]) {
          currentXValue = currentValue;
          labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentXValue];
