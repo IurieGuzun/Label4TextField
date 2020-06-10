@@ -58,7 +58,7 @@
     [labelX addGestureRecognizer:tapXAction];
     [labelY addGestureRecognizer:tapYAction];
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)(0.5)
+    timer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)(0.2)
                                   target:self
                                    selector:@selector(blink)
                                    userInfo:nil
