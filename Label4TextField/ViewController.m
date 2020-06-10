@@ -23,6 +23,7 @@
  NSString *xValue;
  NSString *yValue;
  BOOL blinkStatus = NO;
+
 @implementation ViewController
 
 @synthesize labelX, labelY;
@@ -36,6 +37,7 @@
     currentYValue = [NSMutableString stringWithString:@""];
     currentLabel = [NSMutableString stringWithString:@""];
     minusSymbol = @"-";
+    cursorSymbol = @"_";
     xValue = @"X = ";
     yValue = @"Y = ";
     
@@ -47,40 +49,47 @@
     
     UITapGestureRecognizer *tapYAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelYClick:)];
     
-//    timer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)(1.0)
-//                                target:self
-//                                 selector:@selector(blink)
-//                                 userInfo:nil
-//                                 repeats:TRUE];
+  
+    tapYAction.numberOfTapsRequired = 1;
     
-       tapYAction.numberOfTapsRequired = 1;
     //Enable the label UserIntraction
     labelX.userInteractionEnabled = YES;
     labelY.userInteractionEnabled = YES;
     [labelX addGestureRecognizer:tapXAction];
     [labelY addGestureRecognizer:tapYAction];
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)(0.5)
+                                  target:self
+                                   selector:@selector(blink)
+                                   userInfo:nil
+                                   repeats:TRUE];
+    
 }
 -(void)blink{
     NSLog(@"Blink Accessed!!!");
-  //  BOOL blinkStatus = NO;
+
    if(blinkStatus == NO){
-      labelX.backgroundColor = [UIColor blueColor];
-     blinkStatus = YES;
+     if ([currentLabel isEqualToString:xValue]) {
+        labelX.text = [NSString stringWithFormat: @"%@ %@%@", xValue, currentXValue, cursorSymbol];
+      } else if ([currentLabel isEqualToString:yValue]) {
+        labelY.text = [NSString stringWithFormat: @"%@ %@%@", yValue, currentYValue, cursorSymbol];
+      }
+       blinkStatus = YES;
    }else {
-      labelX.backgroundColor = [UIColor grayColor];
+  
+      labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentXValue];
+      labelY.text = [NSString stringWithFormat: @"%@ %@", yValue, currentYValue];
       blinkStatus = NO;
    }
 }
 - (void)labelXClick:(UITapGestureRecognizer *)tapGesture {
         NSLog(@"Label X Tapped!");
         currentLabel = [NSMutableString stringWithString:xValue];
- 
-         NSLog(@"%@", currentValue);
-   //      labelX.text = @" X = _";
-        
+        NSLog(@"%@", currentValue);
 }
 - (void)labelYClick:(UITapGestureRecognizer *)tapGesture {
-        NSLog(@"Label Y Tapped!");
+//    [timer invalidate];
+    NSLog(@"Label Y Tapped!");
          currentLabel = [NSMutableString stringWithString:yValue];
 }
 - (IBAction)buttonBackPressed:(UIButton *)sender {
@@ -122,19 +131,13 @@
 }
 
 -(void) xYToCurrent{
-    timer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)(1.0)
-                                target:self
-                                 selector:@selector(blink)
-                                 userInfo:nil
-                                 repeats:TRUE];
 
     if ([currentLabel isEqualToString:xValue]) {
          currentXValue = currentValue;
          labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentXValue];
-
           } else if ([currentLabel isEqualToString:yValue]) {
               currentYValue = currentValue;
-         labelY.text = [NSString stringWithFormat: @"%@ %@", yValue, currentYValue];
+          labelY.text = [NSString stringWithFormat: @"%@ %@", yValue, currentYValue];
    }
 }
 
