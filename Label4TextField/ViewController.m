@@ -40,19 +40,12 @@
     cursorSymbol = @"_";
     xValue = @"X = ";
     yValue = @"Y = ";
-    
-    
+     
     UITapGestureRecognizer *tapXAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelXClick:)];
-    
- //   tapXAction.delegate = self;
     tapXAction.numberOfTapsRequired = 1;
-    
     UITapGestureRecognizer *tapYAction = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelYClick:)];
-    
-  
     tapYAction.numberOfTapsRequired = 1;
     
-    //Enable the label UserIntraction
     labelX.userInteractionEnabled = YES;
     labelY.userInteractionEnabled = YES;
     [labelX addGestureRecognizer:tapXAction];
@@ -63,8 +56,8 @@
                                    selector:@selector(blink)
                                    userInfo:nil
                                    repeats:TRUE];
-    
-}
+    }
+
 -(void)blink{
     NSLog(@"Blink Accessed!!!");
 
@@ -75,23 +68,25 @@
         labelY.text = [NSString stringWithFormat: @"%@ %@%@", yValue, currentYValue, cursorSymbol];
       }
        blinkStatus = YES;
-   }else {
-  
+   } else {
       labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentXValue];
       labelY.text = [NSString stringWithFormat: @"%@ %@", yValue, currentYValue];
       blinkStatus = NO;
    }
 }
+
 - (void)labelXClick:(UITapGestureRecognizer *)tapGesture {
         NSLog(@"Label X Tapped!");
         currentLabel = [NSMutableString stringWithString:xValue];
         NSLog(@"%@", currentValue);
 }
+
 - (void)labelYClick:(UITapGestureRecognizer *)tapGesture {
 //    [timer invalidate];
     NSLog(@"Label Y Tapped!");
          currentLabel = [NSMutableString stringWithString:yValue];
 }
+
 - (IBAction)buttonBackPressed:(UIButton *)sender {
     
         NSLog(@"Button Delete Tapped!");
@@ -108,11 +103,9 @@
 }
 
 - (IBAction)buttonThreePressed:(UIButton *)sender {
-   
     NSLog(@"Button 3 Tapped!");
     NSString* mySymbol = @"3";
     [self insertSymbol:mySymbol];
-    
 }
 
 - (void) insertSymbol: (NSString*) srt {
@@ -131,7 +124,6 @@
 }
 
 -(void) xYToCurrent{
-
     if ([currentLabel isEqualToString:xValue]) {
          currentXValue = currentValue;
          labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentXValue];
@@ -169,7 +161,6 @@
           NSString* mySymbol = @"0";
            [currentValue appendString: mySymbol];
       }
-//    labelX.text = [NSString stringWithFormat: @"%@ %@", xValue, currentValue];
     [self xYToCurrent];
 }
 
