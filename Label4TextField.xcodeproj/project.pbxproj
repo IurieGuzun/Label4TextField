@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A5BAAD625B60D3E004A994D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5BAAD525B60D3E004A994D /* AppDelegate.swift */; };
 		8AA22E4225B5E6D0001CECC6 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA22E4125B5E6D0001CECC6 /* AppView.swift */; };
 		8AA22E4425B5E7AC001CECC6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA22E4325B5E7AC001CECC6 /* SceneDelegate.swift */; };
 		8AD84F7E248947BE009B945A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD84F7D248947BE009B945A /* AppDelegate.m */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A5BAAD525B60D3E004A994D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AA22E4125B5E6D0001CECC6 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		8AA22E4325B5E7AC001CECC6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8AD84F79248947BE009B945A /* Label4TextField.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Label4TextField.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +54,7 @@
 		8AD84F70248947BE009B945A = {
 			isa = PBXGroup;
 			children = (
+				8A5BAAD525B60D3E004A994D /* AppDelegate.swift */,
 				8AD84F7B248947BE009B945A /* Label4TextField */,
 				8AD84F7A248947BE009B945A /* Products */,
 			);
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5BAAD625B60D3E004A994D /* AppDelegate.swift in Sources */,
 				8AE662F125B5E0C00028A33D /* ViewController.swift in Sources */,
 				8AA22E4425B5E7AC001CECC6 /* SceneDelegate.swift in Sources */,
 				8AD84F84248947BE009B945A /* ViewController.m in Sources */,
