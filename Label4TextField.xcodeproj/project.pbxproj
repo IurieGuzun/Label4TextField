@@ -8,25 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		8A5BAAD625B60D3E004A994D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5BAAD525B60D3E004A994D /* AppDelegate.swift */; };
+		8A73CC3225CC44CF000C6A5E /* MyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A73CC3125CC44CF000C6A5E /* MyFile.swift */; };
 		8AA22E4225B5E6D0001CECC6 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA22E4125B5E6D0001CECC6 /* AppView.swift */; };
 		8AA22E4425B5E7AC001CECC6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA22E4325B5E7AC001CECC6 /* SceneDelegate.swift */; };
-		8AD84F87248947BE009B945A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AD84F85248947BE009B945A /* Main.storyboard */; };
 		8AD84F89248947CB009B945A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD84F88248947CB009B945A /* Assets.xcassets */; };
 		8AD84F8C248947CB009B945A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AD84F8A248947CB009B945A /* LaunchScreen.storyboard */; };
-		8AE662F125B5E0C00028A33D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE662F025B5E0C00028A33D /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8A5BAAD525B60D3E004A994D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8A73CC3125CC44CF000C6A5E /* MyFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFile.swift; sourceTree = "<group>"; };
+		8A73CC3325CC4504000C6A5E /* Label4TextField-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Label4TextField-Bridging-Header.h"; sourceTree = "<group>"; };
 		8AA22E4125B5E6D0001CECC6 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		8AA22E4325B5E7AC001CECC6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8AD84F79248947BE009B945A /* Label4TextField.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Label4TextField.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AD84F86248947BE009B945A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AD84F88248947CB009B945A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AD84F8B248947CB009B945A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AD84F8D248947CB009B945A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8AE662EF25B5E0C00028A33D /* Label4TextField-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Label4TextField-Bridging-Header.h"; sourceTree = "<group>"; };
-		8AE662F025B5E0C00028A33D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +58,13 @@
 			isa = PBXGroup;
 			children = (
 				8A5BAAD525B60D3E004A994D /* AppDelegate.swift */,
-				8AE662F025B5E0C00028A33D /* ViewController.swift */,
 				8AA22E4125B5E6D0001CECC6 /* AppView.swift */,
-				8AD84F85248947BE009B945A /* Main.storyboard */,
+				8A73CC3125CC44CF000C6A5E /* MyFile.swift */,
 				8AD84F88248947CB009B945A /* Assets.xcassets */,
+				8A73CC3325CC4504000C6A5E /* Label4TextField-Bridging-Header.h */,
 				8AD84F8A248947CB009B945A /* LaunchScreen.storyboard */,
 				8AD84F8D248947CB009B945A /* Info.plist */,
 				8AA22E4325B5E7AC001CECC6 /* SceneDelegate.swift */,
-				8AE662EF25B5E0C00028A33D /* Label4TextField-Bridging-Header.h */,
 			);
 			path = Label4TextField;
 			sourceTree = "<group>";
@@ -132,7 +129,6 @@
 			files = (
 				8AD84F8C248947CB009B945A /* LaunchScreen.storyboard in Resources */,
 				8AD84F89248947CB009B945A /* Assets.xcassets in Resources */,
-				8AD84F87248947BE009B945A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A5BAAD625B60D3E004A994D /* AppDelegate.swift in Sources */,
-				8AE662F125B5E0C00028A33D /* ViewController.swift in Sources */,
+				8A73CC3225CC44CF000C6A5E /* MyFile.swift in Sources */,
 				8AA22E4425B5E7AC001CECC6 /* SceneDelegate.swift in Sources */,
 				8AA22E4225B5E6D0001CECC6 /* AppView.swift in Sources */,
 			);
@@ -153,14 +149,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8AD84F85248947BE009B945A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8AD84F86248947BE009B945A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8AD84F8A248947CB009B945A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
