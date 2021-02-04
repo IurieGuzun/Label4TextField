@@ -22,7 +22,11 @@ var    labelYText = yValue
 
 func insertSymbol (inputString: String) {
     currentToXY()
-    currentValue.append(inputString)
+    if currentValue.count == 0 {
+        currentValue.append(inputString)
+    } else if currentValue.count==1 && currentValue == minusSymbol {
+        currentValue.append(inputString)
+    }
     xYToCurrent()
     print(currentValue)
 }
@@ -65,7 +69,6 @@ struct AppView: View {
                 ButonsView()
             }.padding(5)
     }
-    
 }
 
 struct LabelsView: View {
@@ -95,14 +98,14 @@ struct LabelsView: View {
     var body: some View {
         return VStack(alignment: .leading) {
             Text(labelSettings.labelXText)
-                .padding(5)
+                .padding(3)
                 .onTapGesture {
                     print("X= is current")
                     currentLabel = xValue
             }
 
             Text(labelSettings.labelYText)
-                   .padding(5)
+                   .padding(3)
                    .onTapGesture {
                     print("Y= is current")
                     currentLabel = yValue
@@ -110,9 +113,6 @@ struct LabelsView: View {
             .onReceive(timer) {_ in
                     self.blink()
             }
-
-            
-            
         }.padding(5)
     }
 }
@@ -147,7 +147,7 @@ struct ButonsView: View {
                     }
                     xYToCurrent()
                 })
-                {Text ("BS")
+                {Text ("<=")
                     .modifier(ButtonShape())
                 }
             }
@@ -185,9 +185,9 @@ struct ButonsView: View {
 struct ButtonShape: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .frame(width: 20, height: 20)
+            .frame(width: 22, height: 20)
             .font(.body)
-            .padding(5)
+            .padding(3)
             .foregroundColor(Color.white)
             .background(Color.green)
             .cornerRadius(10)
